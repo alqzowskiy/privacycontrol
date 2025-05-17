@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Настройки анонимизации</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/icon48.png" alt="Logo" class="logo">
+      <h1>Анонимизация данных</h1>
+    </div>
+
+    <!-- Статус сервера -->
+    <div class="status-panel">
+      <div class="server-status">
+        <span class="status-indicator" id="server-indicator"></span>
+        <span class="status-text" id="server-status">Проверка сервера...</span>
+      </div>
+    </div>
+
+    <!-- Основные настройки -->
+    <div class="settings-section">
+      <h2>Основные настройки</h2>
+
+      <div class="setting-item special-setting">
+        <input type="checkbox" id="setting-SHOW_TOOLBAR" data-key="SHOW_TOOLBAR">
+        <label for="setting-SHOW_TOOLBAR">Показывать тулбар при выделении текста</label>
+        <div class="setting-description">Если отключено, тулбар не будет появляться при выделении</div>
+      </div>
+
+      <div class="setting-item special-setting">
+        <input type="checkbox" id="setting-SHOW_LOCK_ICON" data-key="SHOW_LOCK_ICON">
+        <label for="setting-SHOW_LOCK_ICON">Показывать индикатор защиты</label>
+        <div class="setting-description">Отображает значок замка в углу страницы со статусом защиты</div>
+      </div>
+    </div>
+
+    <!-- Настройки маскирования -->
+    <div class="settings-section">
+      <h2>Маскирование данных</h2>
+      <p class="settings-description">Выберите типы данных для анонимизации:</p>
+
+      <div class="settings-grid">
+        <div class="category">
+          <h3>Личные данные</h3>
+          <div class="setting-item">
+            <input type="checkbox" id="setting-ИИН" data-key="ИИН">
+            <label for="setting-ИИН">ИИН</label>
+          </div>
+
+          <div class="setting-item">
+            <input type="checkbox" id="setting-ПАСПОРТ" data-key="ПАСПОРТ">
+            <label for="setting-ПАСПОРТ">Паспортные данные</label>
+          </div>
+
+          <div class="setting-item">
+            <input type="checkbox" id="setting-ДАТА РОЖДЕНИЯ" data-key="ДАТА РОЖДЕНИЯ">
+            <label for="setting-ДАТА РОЖДЕНИЯ">Даты рождения</label>
+          </div>
+
+          <div class="setting-item">
+            <input type="checkbox" id="setting-PERSON" data-key="PERSON">
+            <label for="setting-PERSON">ФИО</label>
+          </div>
+        </div>
+
+        <div class="category">
+          <h3>Контактная информация</h3>
+          <div class="setting-item">
+            <input type="checkbox" id="setting-EMAIL" data-key="EMAIL">
+            <label for="setting-EMAIL">Email адреса</label>
+          </div>
+
+          <div class="setting-item">
+            <input type="checkbox" id="setting-ТЕЛЕФОН" data-key="ТЕЛЕФОН">
+            <label for="setting-ТЕЛЕФОН">Телефоны</label>
+          </div>
+
+          <div class="setting-item">
+            <input type="checkbox" id="setting-ADDRESS" data-key="ADDRESS">
+            <label for="setting-ADDRESS">Адреса</label>
+          </div>
+        </div>
+
+        <div class="category">
+          <h3>Финансовая информация</h3>
+          <div class="setting-item">
+            <input type="checkbox" id="setting-КАРТА" data-key="КАРТА">
+            <label for="setting-КАРТА">Банковские карты</label>
+          </div>
+        </div>
+
+        <div class="category">
+          <h3>Организации и локации</h3>
+          <div class="setting-item">
+            <input type="checkbox" id="setting-ORG" data-key="ORG">
+            <label for="setting-ORG">Организации</label>
+          </div>
+
+          <div class="setting-item">
+            <input type="checkbox" id="setting-LOC" data-key="LOC">
+            <label for="setting-LOC">Локации</label>
+          </div>
+
+          <div class="setting-item">
+            <input type="checkbox" id="setting-GPE" data-key="GPE">
+            <label for="setting-GPE">Города/Страны</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <button id="select-all" class="action-button">Выбрать все</button>
+        <button id="deselect-all" class="action-button">Снять все</button>
+      </div>
+    </div>
+
+    <!-- Дополнительные опции -->
+    <div class="settings-section">
+      <h2>Дополнительные опции</h2>
+
+      <div class="setting-item">
+        <button id="test-server" class="secondary-button full-width">Проверить AI-сервер</button>
+        <div class="setting-description">Проверить доступность локального сервера анонимизации</div>
+      </div>
+    </div>
+
+    <!-- Кнопки действий -->
+    <div class="actions">
+      <button id="save-settings" class="primary-button">Сохранить настройки</button>
+      <button id="reset-settings" class="secondary-button">Сбросить</button>
+    </div>
+
+    <!-- Статус сохранения -->
+    <div id="save-status" class="save-status"></div>
+
+    <div class="footer">
+      <small>Разработано для кейса #2: Локальная анонимизация данных (SKILLSET AI HACKATHON)</small>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
